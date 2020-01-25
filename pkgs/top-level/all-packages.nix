@@ -21187,6 +21187,8 @@ with pkgs;
 
   sampler = callPackage ../applications/misc/sampler { };
 
+  sandstorm = callPackage ../servers/sandstorm { };
+
   shairplay = callPackage ../servers/shairplay { avahi = avahi-compat; };
 
   shairport-sync = callPackage ../servers/shairport-sync { };
