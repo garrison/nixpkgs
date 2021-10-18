@@ -6,6 +6,7 @@
 , xz, zip, unzip
 , boringssl, clang, libcap, libseccomp, libsodium
 , pkgsStatic
+, ekam
 }:
 
 stdenv.mkDerivation rec {
@@ -20,7 +21,7 @@ stdenv.mkDerivation rec {
     leaveDotGit = true;
   };
 
-  nativeBuildInputs = [ git which ];
+  nativeBuildInputs = [ git which ekam ];
 
   buildInputs = [
     libpcap xz zip unzip
@@ -40,6 +41,9 @@ stdenv.mkDerivation rec {
     # under nix-build.
     substituteInPlace deps/capnproto/c++/src/kj/filesystem-disk-test.c++ \
       --replace "/var/tmp" "/tmp"
+
+    # Use the system-provided ekam
+    substituteInPlace Makefile --replace "tmp/ekam-bin -j" "ekam -j"
   '';
 
   makeFlags = [
