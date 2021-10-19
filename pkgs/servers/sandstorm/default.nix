@@ -1,7 +1,7 @@
 { stdenv, lib, fetchgit
 , python3, zlib
 , which
-, libpcap, strace, curl
+, strace, curl
 , discount, git, meteor
 , xz, zip, unzip
 , boringssl, clang, libcap, libseccomp, libsodium
@@ -24,7 +24,7 @@ stdenv.mkDerivation rec {
   nativeBuildInputs = [ git which ekam strace ];
 
   buildInputs = [
-    libpcap xz zip unzip
+    xz zip unzip
     curl python3 zlib
     meteor discount
     boringssl clang libcap libseccomp libsodium
