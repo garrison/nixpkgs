@@ -21,7 +21,7 @@ stdenv.mkDerivation rec {
     leaveDotGit = true;
   };
 
-  nativeBuildInputs = [ git which ekam ];
+  nativeBuildInputs = [ git which ekam strace ];
 
   buildInputs = [
     libpcap xz zip unzip
